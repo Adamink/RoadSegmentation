@@ -1,5 +1,6 @@
 *.pth
-work_dirs/
+pretrained
+work_dirs
 data
 .git
 *.csv

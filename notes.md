@@ -1,10 +1,20 @@
 # Model caparison
 ## on ADE20k
+
+Medium-size model
 | methods | mIoU | mIoU(ms+flip) |
 | ---- | ---- | ---- |
 | Swin-B |  48.13 | 49.72 |
 | ViTAdapter-B(AugReg-B)| 51.9 | 52.5 |
 | BEiT-B | 53.08 | 53.84 | 
+
+| methods | mIoU | mIoU(ms+flip) | Mem(G)
+| ---- | ---- | ---- | ---- |
+| BEiT-L | 56.33 | 56.84 | 22.64 |
+| BEiT-B | 53.08 | 53.84 | 15.88 |
+| Swin-L | 52.25 | 54.12 |  12.42 |
+| ViT-Adapter-L(UperNet, BEiT)| 58.0 | 58.4	| - |
+| ViT-Adapter-L(Mask2Former, BEiT) |  58.3 | 59.0 | - | 
 # PSPNet
 ## R101 vs R50
 roughly 0.5 improvement on mIoU
