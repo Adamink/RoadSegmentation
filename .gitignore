@@ -1,0 +1,5 @@
+*.pth
+work_dirs/
+data
+.git
+*.csv
