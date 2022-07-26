@@ -40,21 +40,28 @@ Choose one of the following config files.
 CONFIG_FILE="configs/swin/upernet_swin_small_patch4_window7_512x512_160k_cil_pretrain_224x224_1K.py"
 CONFIG_FILE="configs/swin/upernet_swin_base_patch4_window12_256x256_160k_cil_pretrain_384x384_22K.py"
 CONFIG_FILE="configs/pspnet/pspnet_r50-d8_512x512_80k_cil.py"
+
+# large models
+CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil.py"
+
 ```
 on laptop:
 
 ```sh
-sh dist_train.sh ${CONFIG_FILE} 1
+bash dist_train.sh ${CONFIG_FILE} 1
+
+# distributed on 4 GPUs
+bash dist_train.sh ${CONFIG_FILE} 4
 ```
 on Euler:
 ```sh
 # not distributed
 bsub -n 1 -R "rusage[mem=8000,ngpus_excl_p=1]" "sh dist_train.sh ${CONFIG_FILE} 1" 
 
-# distributed on 2 GPUS
+# distributed on 2 GPUs
 bsub -W 24:00 -n 4 -R "rusage[mem=8000,ngpus_excl_p=2]" "sh dist_train.sh ${CONFIG_FILE} 2"
 
-# distributed on 2 GPUS asking for better GPUs 
+# distributed on 2 GPUs asking for better GPUs 
 bsub -W 24:00 -n 4 -R "rusage[mem=8000,ngpus_excl_p=2]" -R "select[gpu_model0==NVIDIAGeForceRTX2080Ti]" "sh dist_train.sh ${CONFIG_FILE} 2"
 ```
 
