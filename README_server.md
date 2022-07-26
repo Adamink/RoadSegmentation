@@ -1,7 +1,5 @@
 ## Install
 ```sh
-# conda install -c anaconda cudatoolkit # 11.3
-# conda install -c anaconda cudnn
 # conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
 conda create --name=cuda11.0 pytorch=1.7.1 torchvision==0.8.2 cudatoolkit=11.0 -c pytorch -c nvidia
 conda activate cuda11.0
@@ -13,6 +11,7 @@ pip install -U openmim
 mim install mmcv-full==1.6.0
 pip install mmsegmentation
 pip install future tensorboard
+sudo apt-get install ffmpeg libsm6 libxext6 -y
 ```
 
 ## Prepare dataset
@@ -31,6 +30,5 @@ wget -P pretrained https://download.openmmlab.com/mmsegmentation/v0.5/swin/upern
 ## Run
 ```sh
 CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil.py"
-PORT=59000 bash dist_train.sh ${CONFIG_FILE} 4
-
+bash dist_train.sh ${CONFIG_FILE} 1
 ```
