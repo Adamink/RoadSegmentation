@@ -25,10 +25,24 @@ python extract_data.py
 mkdir pretrained
 # Swin-L
 wget -P pretrained https://download.openmmlab.com/mmsegmentation/v0.5/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_ade20k/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_ade20k_20220318_091743-9ba68901.pth
+
+wget -P pretrained https://download.openmmlab.com/mmsegmentation/v0.5/beit/upernet_beit-large_fp16_8x1_640x640_160k_ade20k/upernet_beit-large_fp16_8x1_640x640_160k_ade20k-8fc0dd5d.pth
 ```
 
 ## Run
 ```sh
 CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil.py"
+CONFIG_FILE="configs/beit/upernet_beit-base_640x640_160k_cil_ms.py"
+
 bash dist_train.sh ${CONFIG_FILE} 1
+```
+
+## Test
+```sh
+CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil.py"
+CHECKPOINT_FILE="work_dirs/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil/best_mIoU_iter_76850.pth"
+SHOW_DIR="data/annotations/validation_my/"
+
+python test.py ${CONFIG_FILE} ${CHECKPOINT_FILE} --show-dir ${SHOW_DIR} # generating mask outputs in data/annotations/test/
+python mask_to_submission.py # generating submission csv file
 ```

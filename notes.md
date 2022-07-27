@@ -34,4 +34,5 @@ According to [PSPNet](https://arxiv.org/pdf/1612.01105.pdf), large crop_size is 
 16 is used in [PSPNet](https://arxiv.org/pdf/1612.01105.pdf).
 
 
-
+## ViT-Adapter
+sudo apt-get install build-essential
