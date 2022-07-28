@@ -33,6 +33,7 @@ wget -P pretrained https://download.openmmlab.com/mmsegmentation/v0.5/beit/upern
 ```sh
 CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil.py"
 CONFIG_FILE="configs/beit/upernet_beit-base_640x640_160k_cil_ms.py"
+CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil_noweight.py"
 
 bash dist_train.sh ${CONFIG_FILE} 1
 ```
@@ -41,7 +42,10 @@ bash dist_train.sh ${CONFIG_FILE} 1
 ```sh
 CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil.py"
 CHECKPOINT_FILE="work_dirs/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil/best_mIoU_iter_76850.pth"
-SHOW_DIR="data/annotations/validation_my/"
+SHOW_DIR="data/annotations/test/"
+
+CONFIG_FILE="configs/beit/upernet_beit-base_640x640_160k_cil_ms.py"
+CHECKPOINT_FILE="work_dirs/upernet_beit-base_640x640_160k_cil_ms/best_mIoU_iter_55300.pth"
 
 python test.py ${CONFIG_FILE} ${CHECKPOINT_FILE} --show-dir ${SHOW_DIR} # generating mask outputs in data/annotations/test/
 python mask_to_submission.py # generating submission csv file
