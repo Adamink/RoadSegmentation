@@ -43,7 +43,7 @@ lr_config = dict(
     by_epoch=False)
 
 # NOTE: Change to 1 to see if it fits
-data = dict(samples_per_gpu=1)
+data = dict(samples_per_gpu=2)
 
 log_config=dict(interval=50) # ?
 evaluation=dict(interval=50, metric='mIoU', save_best='mIoU', pre_eval=True)

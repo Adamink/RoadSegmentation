@@ -35,17 +35,19 @@ wget -P pretrained https://download.openmmlab.com/mmsegmentation/v0.5/beit/upern
 
 ## Run
 ```sh
-# Swin-L
-CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil.py"
 # Swin-B
 CONFIG_FILE="configs/swin/upernet_swin_base_patch4_window12_512x512_160k_cil_pretrain_384x384_22K.py"
 # Swin-B nopretrain
 CONFIG_FILE="configs/swin/upernet_swin_base_patch4_window12_512x512_160k_cil_nopretrain.py"
+# Swin-B noweight
+CONFIG_FILE="configs/swin/upernet_swin_base_patch4_window12_512x512_160k_cil_pretrain_384x384_22K_noweight.py"
+# Swin-L
+CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil.py"
+# Swin-L noweight
+CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil_noweight.py"
 
 # Beit-B
 CONFIG_FILE="configs/beit/upernet_beit-base_640x640_160k_cil_ms.py"
-# Swin-L noweight
-CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil_noweight.py"
 
 CUDA_VISIBLE_DEVICES=0 bash dist_train.sh ${CONFIG_FILE} 1
 ```
