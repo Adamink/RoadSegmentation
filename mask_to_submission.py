@@ -9,7 +9,7 @@ from absl import app, flags
 FLAGS = flags.FLAGS
 
 flags.DEFINE_string(
-    "submission_filename", "beit_submission.csv", "The output csv for the submission.")
+    "submission_filename", "swinlarge_noweight.csv", "The output csv for the submission.")
 flags.DEFINE_string(
     "base_dir", "data/annotations/test", "The directory with the predicted masks.")
 
