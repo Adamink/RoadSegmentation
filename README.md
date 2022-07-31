@@ -82,7 +82,7 @@ bsub -n 1 -R "rusage[mem=8000,ngpus_excl_p=1]" "sh dist_train.sh ${CONFIG_FILE} 
 bsub -W 24:00 -n 4 -R "rusage[mem=8000,ngpus_excl_p=2]" "sh dist_train.sh ${CONFIG_FILE} 2"
 
 # distributed on 2 GPUs asking for better GPUs 
-bsub -W 24:00 -n 4 -R "rusage[mem=8000,ngpus_excl_p=2]" -R "select[gpu_model0==NVIDIAGeForceRTX2080Ti]" "sh dist_train.sh ${CONFIG_FILE} 2"
+bsub -W 24:00 -n 4 -R "rusage[mem=8000,ngpus_excl_p=2]" -R "select[gpu_model0==NVIDIATITANRTX]" "sh dist_train.sh ${CONFIG_FILE} 2"
 ```
 
 ## Check training curves
