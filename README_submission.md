@@ -35,6 +35,21 @@ bsub -n 1 -R "rusage[mem=8000,ngpus_excl_p=1]" "python test.py ${CONFIG_FILE} ${
 python mask_to_submission.py # generating submission csv file
 ```
 
+## Test with trained model
+Download our model by
+```sh
+wget -P pretrained https://www.dropbox.com/s/cco37fqdbo0r8sd/best_mIoU_iter_79700.pth?dl=1
+```
+Then run
+```sh
+CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_384x384_22K_160k_cil_noweight.py"
+CHECKPOINT_FILE="pretrained/best_mIoU_iter_79700.pth"
+SHOW_DIR="data/annotations/test/"
+# 
+bsub -n 1 -R "rusage[mem=8000,ngpus_excl_p=1]" "python test.py ${CONFIG_FILE} ${CHECKPOINT_FILE} --show-dir ${SHOW_DIR}" # generating mask outputs in data/annotations/test/ 
+python mask_to_submission.py # generating submission csv file
+```
+
 ## Reference
 - [Using the batch system on euler](https://scicomp.ethz.ch/wiki/Using_the_batch_system)
 - [MMSegmentation repository](https://github.com/open-mmlab/mmsegmentation)
