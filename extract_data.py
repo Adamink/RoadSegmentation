@@ -84,5 +84,5 @@ def calc_ratio(train_data_ann_dir):
     print('Road: {}, NotRoad: {}'.format(road_cnt / all, not_road_cnt / all))
 
 if __name__ == '__main__':
-    extract_data('./cil-2022/data/', './data/')
+    extract_data('./', './data/')
     calc_ratio('./data/annotations/training/')
