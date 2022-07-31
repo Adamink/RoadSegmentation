@@ -34,7 +34,7 @@ git clone git@github.com:Sinsho/cil-2022.git # download datasets
 python extract_data.py # make training/val split
 ```
 ## Prepare pretrained models
-Choose one of the following pretrained models. The default one is Swin-L, however it cannot fit on reguler Euler graphics card (1080/1080Ti). To train on Euler, choose Swin-S.
+Choose one of the following pretrained models. The default one is Swin-L, however it cannot fit on reguler Euler graphics card (1080/1080Ti). To train on Euler, choose Swin-S or asking for better graphics card.
 ```sh
 mkdir pretrained
 # Swin-L
