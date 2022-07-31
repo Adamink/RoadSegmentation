@@ -50,6 +50,8 @@ CONFIG_FILE="configs/swin/upernet_swin_large_patch4_window12_512x512_pretrain_38
 CONFIG_FILE="configs/beit/upernet_beit-base_640x640_160k_cil_ms.py"
 
 PORT=29503 CUDA_VISIBLE_DEVICES=0 bash dist_train.sh ${CONFIG_FILE} 1
+PORT=29504 CUDA_VISIBLE_DEVICES=1 bash dist_train.sh ${CONFIG_FILE} 1
+
 ```
 
 ## Test
